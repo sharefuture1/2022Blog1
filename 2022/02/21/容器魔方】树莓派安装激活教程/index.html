@@ -1,0 +1,1336 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="young1">
+    <meta name="description" content="【容器魔方】树莓派安装激活教程1、环境要求（1）网络要求a.（pppoe拨号或者静态公网IP的可以忽略跳过）局域网网络的环境，**必须要支持dhcp自动获取IP**，容器魔方会从路由器申请多个IP（MAC地址前缀是c0:e7:3e），请不要">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    
+
+    <title>young1</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">young1</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">young1</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title"></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-02-21
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="【容器魔方】树莓派安装激活教程"><a href="#【容器魔方】树莓派安装激活教程" class="headerlink" title="【容器魔方】树莓派安装激活教程"></a>【容器魔方】树莓派安装激活教程</h1><h2 id="1、环境要求"><a href="#1、环境要求" class="headerlink" title="1、环境要求"></a>1、环境要求</h2><h3 id="（1）网络要求"><a href="#（1）网络要求" class="headerlink" title="（1）网络要求"></a>（1）网络要求</h3><p>a.（pppoe拨号或者静态公网IP的可以忽略跳过）局域网网络的环境，<code>**必须要支持dhcp自动获取IP**</code>，容器魔方会从路由器申请多个IP（MAC地址前缀是c0:e7:3e），请不要禁用这些IP，并开启upnp，DMZ只能映射到其中一个申请的IP。</p>
+<p>b.挂有旁路由的设备，请将容器魔方申请的IP网关指向主路由，减少旁路由的影响，提高跑量。</p>
+<p>c.容器魔方仅支持docker的host（推荐）和macvlan网络模式。</p>
+<h3 id="（2）磁盘要求"><a href="#（2）磁盘要求" class="headerlink" title="（2）磁盘要求"></a>（2）磁盘要求</h3><p>a.分配最小磁盘空间&gt;50G，分配的空间越大越有助于提升跑量，可参考容器魔方的配置推荐。</p>
+<p>b.容器魔方会尽量使用完挂载的分区，建议同一块分区上不要存放其他数据。</p>
+<p>c.容器魔方不会主动格式化磁盘，使用前请自行格式化，推荐ext4、xfs、btrfs等主流文件系统，不支持裸盘、vfat、exfat、ntfs。</p>
+<p>d.app显示磁盘空间比物理磁盘空间小时，请检查文件系统是否有设置预留空间。</p>
+<h2 id="2、安装系统"><a href="#2、安装系统" class="headerlink" title="2、安装系统"></a>2、安装系统</h2><p>网心云容器版本适配树莓派系统，若板子未刷入系统，请先下载树莓派系统并安装。下面用树莓派4B作为例子演示，其他版本树莓派应该也可以用，几乎一样。<code>**若已经安装系统，请直接跳过本节，看安装章节。**</code></p>
+<h2 id="（1）下载镜像"><a href="#（1）下载镜像" class="headerlink" title="（1）下载镜像"></a>（1）下载镜像</h2><p>若愿意安装网心定制固件可进入官网下载，<code>**注意该固件安装后用户无法登录，只能绑定。**</code></p>
+<p>网心官方链接：<a target="_blank" rel="noopener" href="https://www.onethingcloud.com/download-center/">https://www.onethingcloud.com/download-center/</a></p>
+<p><a target="_blank" rel="noopener" href="https://baklibcdn2.dagle.cn/t/428a9f10-9b8e-465d-99f6-59a74b796ed0/u/d9eb7824-0709-438e-a2b1-3ad36165a408/image1620974229878.png"><img src="https://baklibcdn2.dagle.cn/t/428a9f10-9b8e-465d-99f6-59a74b796ed0/u/d9eb7824-0709-438e-a2b1-3ad36165a408/image1620974229878.png"></a></p>
+<p>如果用户希望尝试docker安装，用户需要自己有一定的技术能力和基础安装docker环境，<code>**由于树莓派系统版本较多，建议用户自行寻找对应的安装方法。**</code>下面是官方树莓派的简单刷机教程，需要用户自己有一定的技术能力哦，<code>**建议下载网心定制固件，方便快捷**</code>。</p>
+<p>树莓派官方地址：<a target="_blank" rel="noopener" href="https://www.raspberrypi.org/software/operating-systems/#raspberry-pi-os-32-bit">https://www.raspberrypi.org/software/operating-systems/#raspberry-pi-os-32-bit</a></p>
+<p><a target="_blank" rel="noopener" href="https://baklibcdn2.dagle.cn/t/428a9f10-9b8e-465d-99f6-59a74b796ed0/u/d9eb7824-0709-438e-a2b1-3ad36165a408/1620637416269"><img src="https://baklibcdn2.dagle.cn/t/428a9f10-9b8e-465d-99f6-59a74b796ed0/u/d9eb7824-0709-438e-a2b1-3ad36165a408/1620637416269"></a></p>
+<h2 id="（2）安装系统"><a href="#（2）安装系统" class="headerlink" title="（2）安装系统"></a>（2）安装系统</h2><p>本次安装的为balenaEtcher，<a target="_blank" rel="noopener" href="https://www.balena.io/etcher/">软件下载地址&gt;&gt;</a></p>
+<p><code>注意：SD卡需要SD卡转换器帮助连接电脑</code></p>
+<p><a target="_blank" rel="noopener" href="https://baklibcdn2.dagle.cn/t/428a9f10-9b8e-465d-99f6-59a74b796ed0/u/d9eb7824-0709-438e-a2b1-3ad36165a408/31620637341784.png"><img src="https://baklibcdn2.dagle.cn/t/428a9f10-9b8e-465d-99f6-59a74b796ed0/u/d9eb7824-0709-438e-a2b1-3ad36165a408/31620637341784.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://baklibcdn2.dagle.cn/t/428a9f10-9b8e-465d-99f6-59a74b796ed0/u/d9eb7824-0709-438e-a2b1-3ad36165a408/1620637417204"><img src="https://baklibcdn2.dagle.cn/t/428a9f10-9b8e-465d-99f6-59a74b796ed0/u/d9eb7824-0709-438e-a2b1-3ad36165a408/1620637417204"></a></p>
+<h2 id="（3）登录系统"><a href="#（3）登录系统" class="headerlink" title="（3）登录系统"></a>（3）登录系统</h2><p>登录系统需要两步，下面登录系统的详细说明：</p>
+<p>①打开树莓派原生系统ssh端口</p>
+<p>②连接局域网，终端ssh登录</p>
+<h3 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h3><p>安装系统后，在电脑上进入boot目录，创建ssh文件。（<code>**刚刷完系统，可能无法看到SD卡，请拔插转换器**</code>）</p>
+<p><a target="_blank" rel="noopener" href="https://baklibcdn2.dagle.cn/t/428a9f10-9b8e-465d-99f6-59a74b796ed0/u/d9eb7824-0709-438e-a2b1-3ad36165a408/51620637350880.png"><img src="https://baklibcdn2.dagle.cn/t/428a9f10-9b8e-465d-99f6-59a74b796ed0/u/d9eb7824-0709-438e-a2b1-3ad36165a408/51620637350880.png"></a></p>
+<p>双击进入后，创建ssh文本文件。注意：无后缀格式（去除txt等后缀）</p>
+<p><a target="_blank" rel="noopener" href="https://baklibcdn2.dagle.cn/t/428a9f10-9b8e-465d-99f6-59a74b796ed0/u/d9eb7824-0709-438e-a2b1-3ad36165a408/61620637362937.png"><img src="https://baklibcdn2.dagle.cn/t/428a9f10-9b8e-465d-99f6-59a74b796ed0/u/d9eb7824-0709-438e-a2b1-3ad36165a408/61620637362937.png"></a></p>
+<h3 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h3><p>将SD卡插入树莓派，插上电源和网线（硬盘最后插入），网线连接与电脑主机同一个路由器（保证树莓派和电脑在同一局域网）。</p>
+<p>①查看IP（登录路由器查看），下图IP为192.168.2.24</p>
+<p><a target="_blank" rel="noopener" href="https://baklibcdn2.dagle.cn/t/428a9f10-9b8e-465d-99f6-59a74b796ed0/u/d9eb7824-0709-438e-a2b1-3ad36165a408/71620637370787.png"><img src="https://baklibcdn2.dagle.cn/t/428a9f10-9b8e-465d-99f6-59a74b796ed0/u/d9eb7824-0709-438e-a2b1-3ad36165a408/71620637370787.png"></a></p>
+<p>②ssh登录</p>
+<p>打开终端输入命令：ssh <a href="mailto:&#x70;&#x69;&#x40;&#49;&#x39;&#50;&#x2e;&#49;&#54;&#x38;&#46;&#50;&#x2e;&#x32;&#x34;">&#x70;&#x69;&#x40;&#49;&#x39;&#50;&#x2e;&#49;&#54;&#x38;&#46;&#50;&#x2e;&#x32;&#x34;</a></p>
+<p>输入密码：raspberry（仅本系统）</p>
+<p><code>登录成功!</code></p>
+<p><a target="_blank" rel="noopener" href="https://baklibcdn2.dagle.cn/t/428a9f10-9b8e-465d-99f6-59a74b796ed0/u/d9eb7824-0709-438e-a2b1-3ad36165a408/81620637376339.png"><img src="https://baklibcdn2.dagle.cn/t/428a9f10-9b8e-465d-99f6-59a74b796ed0/u/d9eb7824-0709-438e-a2b1-3ad36165a408/81620637376339.png"></a></p>
+<h2 id="3、安装docker"><a href="#3、安装docker" class="headerlink" title="3、安装docker"></a>3、安装docker</h2><h3 id="（1）切换root用户"><a href="#（1）切换root用户" class="headerlink" title="（1）切换root用户"></a>（1）切换root用户</h3><p>安装需要在root用户下进行，命令：sudo passwd root ，连续两次输入同一密码（无回显）。</p>
+<p> <code>设置成功！su root 切换用户</code></p>
+<p><a target="_blank" rel="noopener" href="https://baklibcdn2.dagle.cn/t/428a9f10-9b8e-465d-99f6-59a74b796ed0/u/d9eb7824-0709-438e-a2b1-3ad36165a408/91620637382443.png"><img src="https://baklibcdn2.dagle.cn/t/428a9f10-9b8e-465d-99f6-59a74b796ed0/u/d9eb7824-0709-438e-a2b1-3ad36165a408/91620637382443.png"></a></p>
+<h3 id="（2）更换官方源"><a href="#（2）更换官方源" class="headerlink" title="（2）更换官方源"></a>（2）更换官方源</h3><p> <code>**建议更换官方默认源，用户根据自己的镜像网上寻找合适的方法，若不更换，可以直接进入安装docker环境。**</code></p>
+<p>可尝试：（若不行，建议自己尝试其他镜像源）</p>
+<p>cat &gt; &#x2F;etc&#x2F;apt&#x2F;sources.list &lt;&lt;EOF</p>
+<p>deb <a target="_blank" rel="noopener" href="http://mirrors.aliyun.com/raspbian/raspbian/">http://mirrors.aliyun.com/raspbian/raspbian/</a> buster main contrib non-free rpi</p>
+<p>deb-src <a target="_blank" rel="noopener" href="http://mirrors.aliyun.com/raspbian/raspbian/">http://mirrors.aliyun.com/raspbian/raspbian/</a> buster main contrib non-free rpi</p>
+<p>EOF</p>
+<p>③更新命令：apt update &amp;&amp; apt upgrade ，输入Y确认，耐心等待更新，正常需要几分钟。</p>
+<p><code>更新成功！</code></p>
+<p><a target="_blank" rel="noopener" href="https://baklibcdn2.dagle.cn/t/428a9f10-9b8e-465d-99f6-59a74b796ed0/u/d9eb7824-0709-438e-a2b1-3ad36165a408/101620637392259.png"><img src="https://baklibcdn2.dagle.cn/t/428a9f10-9b8e-465d-99f6-59a74b796ed0/u/d9eb7824-0709-438e-a2b1-3ad36165a408/101620637392259.png"></a></p>
+<h3 id="（3）安装docker环境"><a href="#（3）安装docker环境" class="headerlink" title="（3）安装docker环境"></a>（3）安装docker环境</h3><p>命令： curl -sSL <a target="_blank" rel="noopener" href="https://get.docker.com/">https://get.docker.com</a> | sh</p>
+<p><code>**安装成功！**</code></p>
+<p><a target="_blank" rel="noopener" href="https://baklibcdn2.dagle.cn/t/428a9f10-9b8e-465d-99f6-59a74b796ed0/u/d9eb7824-0709-438e-a2b1-3ad36165a408/111620637397622.png"><img src="https://baklibcdn2.dagle.cn/t/428a9f10-9b8e-465d-99f6-59a74b796ed0/u/d9eb7824-0709-438e-a2b1-3ad36165a408/111620637397622.png"></a></p>
+<h3 id="（4）常见问题"><a href="#（4）常见问题" class="headerlink" title="（4）常见问题"></a>（4）常见问题</h3><p><code>**1、docker环境安装命令中途失败，重新输入安装命令报错**</code></p>
+<p> 解决办法：</p>
+<p>sudo mv &#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;info &#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;info.bk</p>
+<p>sudo mkdir &#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;info</p>
+<p>sudo apt-get update</p>
+<p>sudo apt-get install -f </p>
+<p>sudo mv &#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;info&#x2F;* &#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;info.bk</p>
+<p>sudo rm -rf &#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;info</p>
+<p>sudo mv &#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;info.bk &#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;info</p>
+<p>重新安装</p>
+<p>curl -sSL <a target="_blank" rel="noopener" href="https://get.docker.com/">https://get.docker.com</a> | sh</p>
+<p><code>**2、docker启动失败**</code></p>
+<p>步骤一：</p>
+<p>在&#x2F;etc&#x2F;docker&#x2F;目录下创建daemon.json，添加如下内容：</p>
+<p>{</p>
+<p>“registry-mirrors”: [“<a href="https://registry.docker-cn.com&quot;]">https://registry.docker-cn.com&quot;]</a></p>
+<p>}</p>
+<p>步骤二：</p>
+<p>重启树莓派</p>
+<h2 id="4、挂载硬盘"><a href="#4、挂载硬盘" class="headerlink" title="4、挂载硬盘"></a>4、挂载硬盘</h2><h3 id="（1）查看硬盘"><a href="#（1）查看硬盘" class="headerlink" title="（1）查看硬盘"></a>（1）查看硬盘</h3><p>命令：lsblk</p>
+<p>结果：</p>
+<p>root@raspberrypi:~# lsblk</p>
+<p>NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT</p>
+<p>sda           8:0    0 223.6G  0 disk</p>
+<p>└─sda1        8:1    0 223.6G  0 part &#x2F;media&#x2F;wxedge_storage（已挂载）</p>
+<p>mmcblk0     179:0    0  14.9G  0 disk</p>
+<p>├─mmcblk0p1 179:1    0   256M  0 part &#x2F;boot</p>
+<p>└─mmcblk0p2 179:2    0  14.6G  0 part &#x2F;</p>
+<h3 id="（2）挂载硬盘"><a href="#（2）挂载硬盘" class="headerlink" title="（2）挂载硬盘"></a>（2）挂载硬盘</h3><p>若未自动挂载，需要手动创建目录：mkdir -p &#x2F;media&#x2F;wxedge_storage（自定义）</p>
+<p>挂载命令：mount &#x2F;dev&#x2F;sda1 &#x2F;media&#x2F;wxedge_storage（自定义）</p>
+<p>挂载成功！查看df -lh</p>
+<p>root@raspberrypi:~# df -lh</p>
+<p>Filesystem      Size  Used Avail Use% Mounted on</p>
+<p>&#x2F;dev&#x2F;root        15G  1.7G   13G  12% &#x2F;</p>
+<p>devtmpfs        1.8G     0  1.8G   0% &#x2F;dev</p>
+<p>tmpfs           1.9G     0  1.9G   0% &#x2F;dev&#x2F;shm</p>
+<p>tmpfs           1.9G  8.5M  1.9G   1% &#x2F;run</p>
+<p>tmpfs           5.0M  4.0K  5.0M   1% &#x2F;run&#x2F;lock</p>
+<p>tmpfs           1.9G     0  1.9G   0% &#x2F;sys&#x2F;fs&#x2F;cgroup</p>
+<p>&#x2F;dev&#x2F;mmcblk0p1  253M   48M  205M  19% &#x2F;boot</p>
+<p>tmpfs           383M     0  383M   0% &#x2F;run&#x2F;user&#x2F;1000</p>
+<p>&#x2F;dev&#x2F;sda1       224G  220G  3.9G  99% &#x2F;media&#x2F;wxedge_storage</p>
+<h2 id="5、运行docker容器"><a href="#5、运行docker容器" class="headerlink" title="5、运行docker容器"></a>5、运行docker容器</h2><h3 id="（1）运行容器"><a href="#（1）运行容器" class="headerlink" title="（1）运行容器"></a>（1）运行容器</h3><p>   命令：</p>
+<p>docker run \</p>
+<p>–name&#x3D;wxedge \</p>
+<p>–restart&#x3D;always \</p>
+<p>–privileged \</p>
+<p>–net&#x3D;host \</p>
+<p>–tmpfs &#x2F;run \</p>
+<p>–tmpfs &#x2F;tmp \</p>
+<p>-v &#x2F;media&#x2F;wxedge_storage:&#x2F;storage:rw \</p>
+<p>-d \</p>
+<p>registry.cn-hangzhou.aliyuncs.com&#x2F;onething&#x2F;wxedge</p>
+<h3 id="（2）docker升级"><a href="#（2）docker升级" class="headerlink" title="（2）docker升级"></a>（2）docker升级</h3><p><strong>Ⅰ：</strong>docker stop wxedge</p>
+<p><strong>Ⅱ：</strong>docker rm wxedge</p>
+<p><strong>Ⅲ：</strong>docker rmi <a target="_blank" rel="noopener" href="http://registry.cn-hangzhou.aliyuncs.com/onething/wxedge">registry.cn-hangzhou.aliyuncs.com&#x2F;onething&#x2F;wxedge</a></p>
+<p><strong>Ⅳ：</strong></p>
+<p>docker run \</p>
+<p>–name&#x3D;wxedge \</p>
+<p>–restart&#x3D;always \</p>
+<p>–privileged \</p>
+<p>–net&#x3D;host \</p>
+<p>–tmpfs &#x2F;run \</p>
+<p>–tmpfs &#x2F;tmp \</p>
+<p>-v &#x2F;media&#x2F;wxedge_storage:&#x2F;storage:rw \</p>
+<p>-d \</p>
+<p>registry.cn-hangzhou.aliyuncs.com&#x2F;onething&#x2F;wxedge</p>
+<h3 id="（3）换盘迁移"><a href="#（3）换盘迁移" class="headerlink" title="（3）换盘迁移"></a>（3）换盘迁移</h3><p>容器启动成功后，会在挂载目录&#x2F;media&#x2F;wxedge_storage生成一个wxnode的文件，该文件是设备的唯一标识与账号绑定，请务必做好备份，换盘或者更换挂载目录时，要将wxnode迁移至新的挂载目录下。</p>
+<h3 id="（4）其他操作"><a href="#（4）其他操作" class="headerlink" title="（4）其他操作"></a>（4）其他操作</h3><p>①换盘操作（挂载目录&#x2F;media&#x2F;wxedge_storage不变）：</p>
+<p>Ⅰdocker  restart  wxedge</p>
+<p>②换盘操作（挂载目录&#x2F;media&#x2F;wxedge_storage改变）：</p>
+<p>Ⅰ：停止容器 docker   stop   wxedge</p>
+<p>Ⅱ：删除容器 docker  rm  wxedge  </p>
+<p>Ⅲ：重新执行运行容器命令</p>
+<h1 id="二、绑定设备"><a href="#二、绑定设备" class="headerlink" title="二、绑定设备"></a>二、绑定设备</h1><h2 id="1-设备初始化"><a href="#1-设备初始化" class="headerlink" title="1.设备初始化"></a>1.设备初始化</h2><p>打开浏览器（推荐谷歌浏览器），输入局域网ip:18888（ip可以通过路由器管理终端页面查看到，树莓派的ip），比如192.168.10.179:18888（一般30秒内都能初始化成功，失败即点击“重试”按钮，多次失败请反馈错误码联系客服反馈）。</p>
+<p>初始化成功后，就会自动进入下图的设置页面：</p>
+<p><a target="_blank" rel="noopener" href="https://baklibcdn2.dagle.cn/t/428a9f10-9b8e-465d-99f6-59a74b796ed0/u/d9eb7824-0709-438e-a2b1-3ad36165a408/121620637406076.png"><img src="https://baklibcdn2.dagle.cn/t/428a9f10-9b8e-465d-99f6-59a74b796ed0/u/d9eb7824-0709-438e-a2b1-3ad36165a408/121620637406076.png"></a></p>
+<h2 id="2-绑定设备"><a href="#2-绑定设备" class="headerlink" title="2.绑定设备"></a>2.绑定设备</h2><p>将设备绑定到网心云APP，可时时看收益，周周提现金。</p>
+<p>1）扫描下方“①”处二维码，下载网心云APP;</p>
+<p>2）绑定设备： 打开网心云APP【<code>右上角“+”-扫一扫</code>】，<code>扫描下图“②”处二维码</code>，即可将设备绑定到网心云APP，即可时时看收益，周周提现金。  </p>
+<p><a target="_blank" rel="noopener" href="https://baklibcdn2.dagle.cn/t/428a9f10-9b8e-465d-99f6-59a74b796ed0/u/d9eb7824-0709-438e-a2b1-3ad36165a408/131620637411922.png"><img src="https://baklibcdn2.dagle.cn/t/428a9f10-9b8e-465d-99f6-59a74b796ed0/u/d9eb7824-0709-438e-a2b1-3ad36165a408/131620637411922.png"></a></p>
+<p>至此，绑定成功，可通过网心云APP时时看收益，周周提现金。</p>
+<pre><code>                              ## other
+
+
+                              <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo blkid  </span><br></pre></td></tr></table></figure>
+</code></pre>
+<p><a target="_blank" rel="noopener" href="https://help.onethingcloud.com/7cb4/3ed5/8907#header-2">【容器魔方】树莓派安装激活教程 | 三方盒子刷机教程 | 网心云 (onethingcloud.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.html.cn/site/111882164483400.html">docker清理大杀器&#x2F;docker的overlay文件占用磁盘太大的解决 - html中文网</a></p>
+<pre><code>                              [关于ubuntu磁盘格式化过程 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/385448034)
+
+                              [Linux磁盘格式化命令详解 - html中文网](https://www.html.cn/site/server/216059.html)
+</code></pre>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">young1</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://example.com/2022/02/21/%E5%AE%B9%E5%99%A8%E9%AD%94%E6%96%B9%E3%80%91%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%89%E8%A3%85%E6%BF%80%E6%B4%BB%E6%95%99%E7%A8%8B/">http://example.com/2022/02/21/%E5%AE%B9%E5%99%A8%E9%AD%94%E6%96%B9%E3%80%91%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%89%E8%A3%85%E6%BF%80%E6%B4%BB%E6%95%99%E7%A8%8B/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">young1</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2022/02/25/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%8F%8A%E5%85%B6%E4%BB%96%E6%9E%B6%E6%9E%84%E6%9C%8D%E5%8A%A1%E5%99%A8docker%E5%AE%89%E8%A3%85%E7%BD%91%E5%BF%83%E4%BA%91%E5%AE%B9%E5%99%A8%E9%AD%94%E6%96%B9/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        
+                        <span class="card-title"></span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-02-25
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            young1
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/02/21/%E5%AE%B9%E5%99%A8%E9%AD%94%E6%96%B9%E3%80%91%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%89%E8%A3%85%E6%BF%80%E6%B4%BB%E6%95%99%E7%A8%8B/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        
+                        <span class="card-title"></span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-21
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            young1
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2022</span>
+            
+            <a href="/about" target="_blank">young1</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
